@@ -1,10 +1,13 @@
+# 20th June, 2026
+# Created by Tian Hong Raymond Wu
+
+# The purpose of this program is to find the beta value that minimises the loss function.
+
 
 import numpy as np
 import matplotlib.pyplot as plt
 t_var = np.load("t_var.npy")
 y_var = np.load("y_var.npy")
-#plt.plot(t_var, y_var)
-#plt.show()
 
 def create_W(p):
    ## generate W which is a p-2 x p matrix as defined in the question
@@ -21,9 +24,6 @@ def loss(beta, y, W, L):
     return 1/(2*p) * np.dot(y - beta, y - beta) + L * np.dot(W @ beta, W @ beta)
 
 
-
-## your code here 
-
 # Match the size of the output matrix 'y'
 p = len(y_var)  
 
@@ -31,10 +31,10 @@ W = create_W(p)
 L = 0.9
 y = y_var
 
-# Compute beta_hat
+# Compute beta_hat that minimises the loss function
 beta_hat = np.linalg.inv(np.identity(p) + 2 * L * p * W.T @ W) @ y
 
-
+# Plot
 plt.plot(t_var, y_var, zorder=1, color='red', label='truth')
 plt.plot(t_var, beta_hat, zorder=3, color='blue', 
             linewidth=2, linestyle='--', label='fit')
