@@ -9,10 +9,7 @@ import sys
 
 print("PROGRAM BEGIN")
 
-# Step Size
 alpha = 0.01
-
-# ?
 gamma = 2
 
 # Starting point
@@ -26,7 +23,7 @@ b = np.array([[3], [1], [-4]])
 x_store = []
 while True:
     # Preparing delta f
-    delta_f = x_k - alpha * (A.T @ A @ x_k - A.T @ b + gamma * x_k)
+    delta_f = A.T @ A @ x_k - A.T @ b + gamma * x_k
     
     if np.linalg.norm(delta_f) < 0.001:
         break
@@ -41,10 +38,12 @@ while True:
     x_k = x_k_next
 
 
+# Print the first 5 iterations
 for i in range(0, 5):
     print("k = " + str(i) + ",      " + "x" + " = " + str(np.round(x_store[i].T, decimals=4)))
 
+# Print the last 5 iterations
 for i in range(0, 5):
-    print("k = " + str(len(x_store) - 5 + i) + ",   " + "x" " = " + str(np.round(x_store[-5+i].T, decimals=4)))
+    print("k = " + str(len(x_store) - 5 + i) + ",       " + "x" " = " + str(np.round(x_store[-5+i].T, decimals=4)))
 
 print("PROGRAM END")
