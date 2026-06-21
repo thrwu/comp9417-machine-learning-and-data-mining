@@ -21,7 +21,7 @@ def loss(beta, y, W, L):
     ## compute loss for a given vector beta for data y, matrix W, regularization parameter L (lambda)
     # your code here 
 
-    return 1/(2*p) * np.dot(y - beta, y - beta) + L * np.dot(W @ beta, W @ beta)
+    return 1/(2*p) * (y - beta).T @ (y - beta) + L * (W @ beta).T @ (W @ beta)
 
 
 # Match the size of the output matrix 'y'
@@ -29,7 +29,7 @@ p = len(y_var)
 
 W = create_W(p)
 L = 0.9
-y = y_var
+y = y_var.reshape(p, 1)
 
 # Compute beta_hat that minimises the loss function
 beta_hat = np.linalg.inv(np.identity(p) + 2 * L * p * W.T @ W) @ y
