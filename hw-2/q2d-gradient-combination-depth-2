@@ -68,7 +68,7 @@ fig1, axes1 = plt.subplots(nrows=5, ncols=2, layout='constrained')
 axes1 = axes1.flatten() # to enumerate through
 
 for i, ax in enumerate(axes1):
-    adaptive = True
+    adaptive = False
     base_learner = (i + 2) * 5
     fitted_model = perform_gradient_combination(X, y, base_learner, adaptive)
     xx = np.linspace(0,1,1000)
@@ -82,7 +82,7 @@ fig2, axes2 = plt.subplots(nrows=5, ncols=2, layout='constrained')
 axes2 = axes2.flatten() # to enumerate through
 
 for i, ax in enumerate(axes2):
-    adaptive = False
+    adaptive = True
     base_learner = (i + 2) * 5
     fitted_model = perform_gradient_combination(X, y, base_learner, adaptive)
     xx = np.linspace(0,1,1000)
