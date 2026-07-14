@@ -6,6 +6,8 @@ Created: 16th June, 2026
 
 This is a repository containing all the code and documentation for UNSW COMP9417 (Machine Learning and Data Mining). The primary usage would be for referencing and storage.
 
+---
+
 ## Homework 1
 
 ### Gradient Based Optimisation
@@ -26,3 +28,17 @@ After finding its derivative, we then rearrange the equation in respect to the p
 ### Coordinate Based Scheme
 
 Similar optimisation method to gradient descent. However, we update the parameters one at a time instead of updating the entire $p$ parameters at every iteration.
+
+---
+
+## Homework 2
+
+### Bias of Estimators
+
+Suppose that we have random variables $X_1, X_2, ..., X_n$~$\mathcal{N}(\mu, \sigma^2)$ where the variables are **independent** (i.e. information about one variable gives no information about another) and **identically distributed** (i.e. same distribution with the same mean and variance after many samples) with a **normal distribution** and a **probability density function** (pdf) that looks like a bell curve.
+
+Some mathematical concepts were utilised here including: **expectancy** ($\mathbb{E}[X]$), **bias**, **variance** and **Mean Squared Error** (MSE) of different **estimators**.
+
+### Gradient Combination Algorithm
+
+An algorithm that relies on training base learners (usually decision trees) to minimise the residual of its previous iterations. 
