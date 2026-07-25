@@ -2,6 +2,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn import datasets
 
+# Created 16th July, 2026
+# Perform the K-Means Clustering Algorithm to categorise unlabeled data points based on the distance between each data point to "clustering centers". After each iteration, we shift the clustering center towards the average of its nearest data points. After many iterations (defined by T), the clustering centers converge to an "optimal" position.
+
 def main():
     X, y = datasets.make_circles(n_samples=200, factor=0.4, noise=0.04, random_state=13)
     colors = np.array(['orange', 'blue'])
@@ -14,8 +17,6 @@ def main():
     plt.title("Randomly Labelled Points")
     plt.savefig("Randomly_Labeled.png")
     plt.show()
-
-
 
 def clustering_algorithm(X):
     T = 10          # Number of iterations for the algorithm to learn/update the clusters
@@ -44,6 +45,7 @@ def clustering_algorithm(X):
     
     print(f"mu_0: {mu_0} | mu_1: {mu_1}")
     return k_i
+
 
 if __name__ == "__main__":
     main()
